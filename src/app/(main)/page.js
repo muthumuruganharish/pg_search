@@ -21,8 +21,6 @@ export default function Home() {
 
       const data = await res.json();
 
-      
-
       setPlaces(data);
     } catch (err) {
       console.error(error);
@@ -180,52 +178,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FEATURED PGS */}
-      {/* <section className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-12">Featured PGs</h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item) => (
-              <div
-                key={item}
-                className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800"
-                  alt="pg"
-                  className="w-full h-64 object-cover"
-                />
-
-                <div className="p-6">
-                  <h3 className="text-xl font-bold">Premium Boys PG</h3>
-
-                  <p className="text-gray-500 mt-2">📍 Velachery, Chennai</p>
-
-                  <div className="flex gap-3 mt-4 text-sm">
-                    <span>📶 WiFi</span>
-                    <span>🍽 Food</span>
-                    <span>❄ AC</span>
-                  </div>
-
-                  <div className="flex justify-between mt-5">
-                    <span className="text-blue-600 font-bold">
-                      ₹7,500/month
-                    </span>
-
-                    <span>⭐ 4.8</span>
-                  </div>
-
-                  <button className="w-full mt-5 bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700">
-                    View Details
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-       */}
       {places.length > 0 && (
         <section className="py-20 bg-slate-50">
           <div className="max-w-7xl mx-auto px-6">
@@ -242,11 +194,8 @@ export default function Home() {
                   : "https://via.placeholder.com/400x250?text=No+Image";
 
                 return (
-                  <div  key={pg.place_id} >
-                    <div
-                     
-                      className="group bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
-                    >
+                  <div key={pg.place_id}>
+                    <div className="group bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
                       {/* Image */}
                       <div className="relative overflow-hidden">
                         <img
@@ -276,13 +225,13 @@ export default function Home() {
                             Verified PG
                           </span>
 
-                          <Link href={`/pg/${pg.place_id}?location=${location}&type=${pgType}`}>
+                          <Link
+                            href={`/pg/${pg.place_id}?location=${location}&type=${pgType}`}
+                          >
                             <button className="bg-blue-600 text-white px-5 py-2 rounded-xl hover:bg-blue-700 transition">
                               View Details
                             </button>
                           </Link>
-
-
                         </div>
                       </div>
                     </div>
@@ -293,6 +242,7 @@ export default function Home() {
           </div>
         </section>
       )}
+
       {/* POPULAR CITIES */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
@@ -302,16 +252,20 @@ export default function Home() {
 
           <div className="grid md:grid-cols-4 gap-6 text-slate-900">
             {["Chennai", "Bangalore", "Hyderabad", "Coimbatore"].map((city) => (
-              <div
-                key={city}
-                className="bg-slate-100 rounded-3xl p-10 text-center text-slate-900 hover:bg-blue-600 hover:text-white transition-all cursor-pointer"
+              <Link 
+              key={city}
+              href={`/pg?location=${encodeURIComponent(city)}&type=PG`}
+              
               >
-                <h3 className="text-2xl font-bold">{city}</h3>
-              </div>
+                <div className="bg-slate-100 rounded-3xl p-10 text-center text-slate-900 hover:bg-blue-600 hover:text-white transition-all cursor-pointer">
+                  <h3 className="text-2xl font-bold">{city}</h3>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
+
       {/* WHY CHOOSE US */}
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
@@ -376,7 +330,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
 
       <footer className="bg-slate-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-6 text-center">

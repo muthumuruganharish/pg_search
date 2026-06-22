@@ -5,6 +5,7 @@ export async function GET(request) {
   const type = searchParams.get("type");
 
   const query = `${type} in ${location}`;
+ 
 
   const url =
     `https://maps.googleapis.com/maps/api/place/textsearch/json` +

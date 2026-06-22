@@ -3,36 +3,56 @@ import { useEffect, useState } from "react";
 import { MapPin, Search, Star, Home } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 export default function Pg() {
   const [pg, setPg] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+  const searchParams = useSearchParams();
+  const location = searchParams.get("location");
+  const type=searchParams.get("type")
+
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(async (position) => {
-      const lat = position.coords.latitude;
-      const lng = position.coords.longitude;
+  const fetchPgs = async () => {
 
-      try {
-        const res = await fetch(`api/nearby-pg?lat=${lat}&lng=${lng}`);
+    // Coming from Popular Cities
+    if (location) {
+      const res = await fetch(
+        `/api/search-pg?location=${location}&type=PG`
+      );
+
+      const data = await res.json();
+      setPg(data);
+      setLoading(false);
+
+      return; // stop here
+    }
+
+    // Coming from Navbar PGs
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+
+        const res = await fetch(
+          `/api/nearby-pg?lat=${lat}&lng=${lng}`
+        );
+
         const data = await res.json();
-        console.log("data:", data);
-        console.log("data_result", data);
-
-        setPg(data || []);
-      } catch (err) {
-        setError("Failed to load nearby PGs");
-      } finally {
+        setPg(data);
         setLoading(false);
-      }
-
+      },
       () => {
         setError("Location permission denied");
         setLoading(false);
-      };
-    });
-  }, []);
+      }
+    );
+  };
+
+  fetchPgs();
+}, [location]);
 
   if (loading) {
     return (
