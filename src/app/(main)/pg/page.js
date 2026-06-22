@@ -1,11 +1,11 @@
 "use client";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { MapPin, Search, Star, Home } from "lucide-react";
 import Navbar from "../components/Navbar";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
-export default function Pg() {
+function Pg() {
   const [pg, setPg] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -134,4 +134,10 @@ export default function Pg() {
       </div>
     </div>
   );
+}
+export default function pgPage(){
+  return (<Suspense fallback={<div>Loading...</div>}>
+    <Pg/>
+
+  </Suspense>)
 }
