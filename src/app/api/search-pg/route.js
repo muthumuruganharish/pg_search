@@ -21,6 +21,7 @@ export async function GET(request) {
     name: pg.name,
     address: pg.formatted_address,
     rating: pg.rating,
+     reviews: pg.user_ratings_total || 0,
     photoReference: pg.photos?.[0]?.photo_reference || null,
   }));
 

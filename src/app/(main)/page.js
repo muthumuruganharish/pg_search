@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import { Search, MapPin, Home as HomeIcon, Wallet } from "lucide-react";
-import Navbar from "@/app/(main)/components/Navbar";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -38,75 +37,69 @@ export default function Home() {
             "url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1600')",
         }}
       >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/60"></div>
-
-        {/* Navbar */}
-        <Navbar />
-
         {/* Hero Content */}
-        <div className="relative z-10 min-h-screen flex flex-col justify-center items-center text-center px-4 pt-24">
-          <h1 className="text-white text-5xl md:text-7xl font-bold">
+        <div className="relative z-10 min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20 pb-12">
+          <h1 className="text-white text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-tight">
             Find Your Perfect PG
             <br />
             in Minutes
           </h1>
 
-          <p className="text-gray-200 text-lg mt-6 max-w-2xl">
+          <p className="text-gray-200 text-sm sm:text-base md:text-lg mt-6 max-w-2xl px-2">
             Discover verified PGs, hostels and co-living spaces across India.
           </p>
 
           {/* Search Box */}
-          <div className="mt-12 w-full max-w-6xl">
-            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6">
-              <div className="grid md:grid-cols-[1.7fr_1.7fr_1fr_auto] gap-4 items-stretch">
-                <div className="bg-white/10 rounded-2xl border border-white/20 p-5 flex items-center gap-3">
-                  <MapPin className="text-white" />
+          <div className="mt-8 md:mt-12 w-full max-w-6xl">
+            <div className="bg-black/20 backdrop-blur-xl border border-white/20 rounded-3xl p-4 md:p-6 shadow-2xl">
+              <div className="grid grid-cols-1 lg:grid-cols-[1.7fr_1.7fr_1fr_auto] gap-4 items-stretch">
+                <div className="bg-white/10 rounded-2xl border border-white/10 p-4 md:p-5 flex items-center gap-3 hover:border-white/30 transition-all duration-200">
+                  <MapPin className="text-blue-400 shrink-0" size={20} />
 
                   <div className="text-left flex-1">
-                    <p className="text-gray-300 text-sm">Location</p>
+                    <p className="text-gray-300 text-xs font-medium uppercase tracking-wider">Location</p>
                     <input
                       type="text"
                       placeholder="Enter city or locality"
                       value={location}
                       onChange={(e) => setLocation(e.target.value)}
-                      className="w-full bg-transparent outline-none text-white placeholder:text-gray-300"
+                      className="w-full bg-transparent outline-none text-white placeholder:text-gray-400 mt-1 text-sm md:text-base"
                     />
                   </div>
                 </div>
 
-                <div className="bg-white/10 rounded-2xl border border-white/20 p-5 flex items-center gap-3">
-                  <HomeIcon className="text-white" />
+                <div className="bg-white/10 rounded-2xl border border-white/10 p-4 md:p-5 flex items-center gap-3 hover:border-white/30 transition-all duration-200">
+                  <HomeIcon className="text-blue-400 shrink-0" size={20} />
                   <div className="text-left flex-1">
-                    <p className="text-gray-300 text-sm">PG Type</p>
+                    <p className="text-gray-300 text-xs font-medium uppercase tracking-wider">PG Type</p>
 
-                    <div className="flex gap-2 mt-2">
+                    <div className="flex flex-wrap gap-1.5 mt-2">
                       <button
                         onClick={() => setPgType("Boys PG")}
-                        className={`px-3 cursor-pointer py-1 rounded-full text-white text-sm ${
+                        className={`px-3 py-1 cursor-pointer rounded-full text-xs font-medium transition-all duration-200 ${
                           pgType === "Boys PG"
-                            ? "bg-blue-600"
-                            : "bg-white/10 border border-white/20"
+                            ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
+                            : "bg-white/10 border border-white/10 text-gray-200 hover:bg-white/20"
                         }`}
                       >
                         Boys
                       </button>
                       <button
                         onClick={() => setPgType("Girls PG")}
-                        className={`px-3 cursor-pointer py-1 rounded-full text-white text-sm ${
+                        className={`px-3 py-1 cursor-pointer rounded-full text-xs font-medium transition-all duration-200 ${
                           pgType === "Girls PG"
-                            ? "bg-blue-600"
-                            : "bg-white/10 border border-white/20"
+                            ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
+                            : "bg-white/10 border border-white/10 text-gray-200 hover:bg-white/20"
                         }`}
                       >
                         Girls
                       </button>
                       <button
                         onClick={() => setPgType("Co-Living")}
-                        className={`px-3 cursor-pointer py-1 rounded-full text-white text-sm ${
+                        className={`px-3 py-1 cursor-pointer rounded-full text-xs font-medium transition-all duration-200 ${
                           pgType === "Co-Living"
-                            ? "bg-blue-600"
-                            : "bg-white/10 border border-white/20"
+                            ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
+                            : "bg-white/10 border border-white/10 text-gray-200 hover:bg-white/20"
                         }`}
                       >
                         Co-Living
@@ -115,36 +108,25 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="bg-white/10 rounded-2xl border border-white/20 p-5 flex items-center gap-3">
-                  <Wallet className="text-white" />
-                  <div className="text-left flex-1">
-                    <p className="text-gray-300 text-sm">Budget</p>
-                    <input
-                      type="text"
-                      placeholder="₹5000 - ₹10000"
-                      className="w-full bg-transparent outline-none text-white placeholder:text-gray-300"
-                    />
-                  </div>
-                </div>
-
+               
                 <button
                   onClick={handleSearch}
                   disabled={loading}
-                  className={`rounded-2xl text-white font-semibold text-lg flex items-center justify-center gap-2 px-8 h-full ${
+                  className={`rounded-2xl text-white font-semibold text-base md:text-lg flex items-center justify-center gap-2 px-8 py-4 lg:py-0 transition-all duration-250 cursor-pointer active:scale-[0.98] ${
                     loading
-                      ? "bg-blue-400 cursor-not-allowed"
-                      : "bg-blue-600 hover:bg-blue-700"
+                      ? "bg-blue-500/70 cursor-not-allowed"
+                      : "bg-blue-600 hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/25"
                   }`}
                 >
                   {loading ? (
                     <>
                       <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                      Searching...
+                      <span>Searching...</span>
                     </>
                   ) : (
                     <>
                       <Search size={20} />
-                      Search
+                      <span>Search</span>
                     </>
                   )}
                 </button>
@@ -155,12 +137,12 @@ export default function Home() {
 
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 w-full max-w-5xl">
-            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6">
+            <div className="bg-white/30 backdrop-blur-xl border border-white/30 rounded-3xl p-6">
               <h2 className="text-white text-4xl font-bold">5000+</h2>
               <p className="text-gray-300">PG Listings</p>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6">
+            <div className="bg-white/20 backdrop-blur-xl border border-white/20 rounded-3xl p-6">
               <h2 className="text-white text-4xl font-bold">10K+</h2>
               <p className="text-gray-300">Happy Users</p>
             </div>
@@ -274,28 +256,26 @@ export default function Home() {
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-3xl shadow">
-              <h3 className="text-xl font-bold">Verified Listings</h3>
+            <div className="bg-white p-8 rounded-3xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+              <h3 className="text-xl font-bold text-slate-800">Verified Listings</h3>
 
-              <p className="mt-4 text-gray-600">
+              <p className="mt-4 text-gray-600 leading-relaxed">
                 Every PG is manually verified before appearing on our platform.
               </p>
             </div>
 
-            <div className="bg-white/10 rounded-2xl border border-white/20 p-5">
-              <p className="text-gray-300 text-sm mb-2">Budget</p>
+            <div className="bg-white p-8 rounded-3xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+              <h3 className="text-xl font-bold text-slate-800">Affordable Pricing</h3>
 
-              <input
-                type="number"
-                placeholder="₹5000"
-                className="w-full bg-transparent outline-none text-white placeholder:text-gray-300"
-              />
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                Find the best rooms and budget-friendly co-living spaces with zero brokerage.
+              </p>
             </div>
 
-            <div className="bg-white p-8 rounded-3xl shadow">
-              <h3 className="text-xl font-bold">Trusted Reviews</h3>
+            <div className="bg-white p-8 rounded-3xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+              <h3 className="text-xl font-bold text-slate-800">Trusted Reviews</h3>
 
-              <p className="mt-4 text-gray-600">
+              <p className="mt-4 text-gray-600 leading-relaxed">
                 Read genuine reviews from verified tenants.
               </p>
             </div>
@@ -319,13 +299,13 @@ export default function Home() {
             <div className="bg-slate-100 p-8 rounded-3xl">
               <p>"Lots of verified PGs with genuine reviews."</p>
 
-              <h4 className="mt-5 font-bold">- Arun, Bangalore</h4>
+              <h4 className="mt-5 font-bold">- Prasanna, chengalpattu</h4>
             </div>
 
             <div className="bg-slate-100 p-8 rounded-3xl">
               <p>"Easy to compare PGs and contact owners."</p>
 
-              <h4 className="mt-5 font-bold">- Priya, Coimbatore</h4>
+              <h4 className="mt-5 font-bold">- Hemanath, tiruvannamalai</h4>
             </div>
           </div>
         </div>
