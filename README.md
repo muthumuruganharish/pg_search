@@ -118,7 +118,8 @@ http://localhost:3000
 
 ### Home Page
 
-![Uploading image.png…]()
+<img width="1335" height="632" alt="image" src="https://github.com/user-attachments/assets/1d2f05c2-032c-4a10-9ff1-d84264200f7d" />
+
 
 
 ### PG Listings
