@@ -1,37 +1,205 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🏠 PG Finder
 
-## Getting Started
+A modern **PG (Paying Guest) Finder** web application built with **Next.js**, **MongoDB**, and **Google Maps Places API**. It helps users discover nearby PG accommodations using their current location or by searching for a city.
 
-First, run the development server:
+---
+
+## 🚀 Features
+
+- 🔍 Search PGs by city
+- 📍 Find nearby PGs using current location
+- 🏠 View detailed PG information
+- ⭐ Real-time ratings and reviews from Google Maps
+- 🖼️ Display real-time PG images
+- 👤 User Authentication (Signup & Login)
+- 💡 Similar PG recommendations
+- 📱 Responsive UI for desktop and mobile
+- 🎨 Modern UI built with Tailwind CSS
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- Next.js 16
+- React.js
+- Tailwind CSS
+- JavaScript
+
+### Backend
+- Next.js API Routes
+- Node.js
+
+### Database
+- MongoDB Atlas
+- Mongoose
+
+### APIs
+- Google Maps JavaScript API
+- Google Places API
+- Place Details API
+- Browser Geolocation API
+
+---
+
+## 📂 Project Structure
+
+```
+src
+│
+├── app
+│   ├── api
+│   │   ├── auth
+│   │   ├── nearby-pg
+│   │   ├── search-pg
+│   │   └── pg/[id]
+│   │
+│   ├── (main)
+│   │   ├── components
+│   │   ├── about
+│   │   ├── contact
+│   │   ├── pg
+│   │   └── cities
+│
+├── lib
+├── models
+└── controller
+```
+
+---
+
+## ⚙️ Installation
+
+### Clone the repository
+
+```bash
+git clone https://github.com/your-username/pg-finder.git
+```
+
+### Navigate to the project
+
+```bash
+cd pg-finder
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Create Environment Variables
+
+Create a `.env.local` file in the root directory.
+
+```env
+MONGODB_URI=your_mongodb_connection_string
+
+GOOGLE_MAPS_API_KEY=your_google_maps_api_key
+
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
+```
+
+### Run the project
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📸 Screenshots
 
-To learn more about Next.js, take a look at the following resources:
+### Home Page
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+(Add Screenshot)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### PG Listings
 
-## Deploy on Vercel
+(Add Screenshot)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### PG Details
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# pg_search
+(Add Screenshot)
+
+### Login & Signup
+
+(Add Screenshot)
+
+---
+
+## 📌 How It Works
+
+1. User enters a city name or uses the current location.
+2. Browser fetches latitude and longitude using the Geolocation API.
+3. Backend sends the request to Google Places API.
+4. Google returns nearby PG data.
+5. User can open a PG to view:
+   - Images
+   - Ratings
+   - Reviews
+   - Address
+   - Contact Number
+6. Users can create an account and log in.
+
+---
+
+## 🔐 Authentication
+
+- User Signup
+- User Login
+- Password Hashing using bcrypt
+- User information stored in MongoDB
+- Logged-in user stored in Local Storage
+
+---
+
+## 🌟 Future Improvements
+
+- ❤️ Wishlist / Favorites
+- 📅 PG Booking System
+- 💳 Online Payment Integration
+- 🔎 Advanced Filters
+- 📍 Interactive Google Maps
+- 📧 Email Verification
+- 🔑 JWT Authentication
+- 🛡️ Role-based Authentication (Admin/User)
+
+---
+
+## 📚 What I Learned
+
+Through this project I gained hands-on experience with:
+
+- Next.js App Router
+- Dynamic Routing
+- API Routes
+- React Hooks
+- MongoDB & Mongoose
+- Google Places API
+- Authentication
+- REST APIs
+- Responsive UI Design
+- Git & GitHub
+- Deployment and Production Builds
+
+---
+
+## 👨‍💻 Author
+
+**Muthumurugan Harish**
+
+- GitHub: https://github.com/your-github
+- LinkedIn: https://linkedin.com/in/your-linkedin
+
+---
+
+## ⭐ Support
+
+If you found this project helpful, consider giving it a ⭐ on GitHub.
