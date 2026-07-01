@@ -195,8 +195,8 @@ Through this project I gained hands-on experience with:
 
 **Muthumurugan Harish**
 
-- GitHub: https://github.com/your-github
-- LinkedIn: https://linkedin.com/in/your-linkedin
+- GitHub: https://github.com/muthumuruganharish
+- LinkedIn: https://linkedin.com/in/muthumuruganharish
 
 ---
 
