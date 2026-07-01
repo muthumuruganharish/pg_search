@@ -118,7 +118,8 @@ http://localhost:3000
 
 ### Home Page
 
-(Add Screenshot)
+![Uploading image.png…]()
+
 
 ### PG Listings
 
