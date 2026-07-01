@@ -124,15 +124,20 @@ http://localhost:3000
 
 ### PG Listings
 
-(Add Screenshot)
+<img width="1335" height="635" alt="image" src="https://github.com/user-attachments/assets/328abe1c-11db-4ac1-b4a8-5735504b0f5d" />
+
 
 ### PG Details
 
-(Add Screenshot)
+<img width="1330" height="626" alt="image" src="https://github.com/user-attachments/assets/75d80685-bcca-43d7-a04e-2f88b8e472f6" />
+
 
 ### Login & Signup
 
-(Add Screenshot)
+<img width="1341" height="628" alt="image" src="https://github.com/user-attachments/assets/eb8f8c6f-b759-44b6-8f03-0a8dd86266ed" />
+<img width="1326" height="617" alt="image" src="https://github.com/user-attachments/assets/44d2f622-9e32-4dd7-84a3-75131fb48752" />
+
+
 
 ---
 
